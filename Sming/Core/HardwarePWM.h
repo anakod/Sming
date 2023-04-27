@@ -31,6 +31,12 @@
 #include <driver/pwm.h>
 
 #define PWM_BAD_CHANNEL 0xff ///< Invalid PWM channel
+#define PWM_BAD_PIN 	0xff ///< Invalid Pin / Pin is not attached to any channel
+
+#if SMING_ARCH==Esp32
+#include "../Arch/Esp32/Core/ledc_timer.h"
+#include "../Arch/Esp32/Core/ledc_channel.h"
+#endif
 
 /// Hardware pulse width modulation
 class HardwarePWM
@@ -121,11 +127,21 @@ public:
 	/** @brief  This function is used to actually update the PWM.
 	 */
 	void update();
+	
+	/** @brief Get PWM Frequency
+	 *  @retval uint32_t Value of Frequency 
+	*/
+	uint32_t getFrequency(uint8_t pin);
 
 private:
 	uint8_t channel_count;
 	uint8_t channels[PWM_CHANNEL_NUM_MAX];
 	uint32_t maxduty;
+
+	#if SMING_ARCH==Esp32
+	ledc_channel* channel[PWM_CHANNEL_NUM_MAX];
+	ledc_timer* timer;
+	#endif
 };
 
 /** @} */
