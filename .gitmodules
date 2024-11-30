@@ -313,6 +313,10 @@
 	path = Sming/Libraries/ModbusMaster/ModbusMaster
 	url = https://github.com/nomis/ModbusMaster.git
 	ignore = dirty
+[submodule "Libraries.Melopero_AMG8833"]
+	path = Sming/Libraries/AMG8833/Melopero_AMG8833
+	url = https://github.com/melopero/Melopero_AMG8833_Arduino_Library.git
+	ignore = dirty
 [submodule "Libraries.MCP_CAN_lib"]
 	path = Sming/Libraries/MCP_CAN_lib
 	url = https://github.com/coryjfowler/MCP_CAN_lib.git
