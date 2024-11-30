@@ -124,7 +124,7 @@ OneWire::OneWire(uint8_t pin)
 
 void OneWire::begin()
 {
-	pinMode(pin, INPUT);
+	pinMode(pin, INPUT_PULLUP);
 	noPullup(pin);
 	bitmask = PIN_TO_BITMASK(pin);
 	baseReg = PIN_TO_BASEREG(pin);
@@ -136,7 +136,7 @@ void OneWire::begin()
 void OneWire::begin(uint8_t pinOneWire)
 {
 	pin = pinOneWire;
-	pinMode(pin, INPUT);
+	pinMode(pin, INPUT_PULLUP);
 	noPullup(pin);
 	bitmask = PIN_TO_BITMASK(pin);
 	baseReg = PIN_TO_BASEREG(pin);

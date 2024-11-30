@@ -112,7 +112,7 @@
 #define IO_REG_TYPE						uint16_t
 #define IO_REG_ASM
 #define DIRECT_READ(base, mask)         (digitalRead(mask) ? 1 : 0)
-#define DIRECT_MODE_INPUT(base, mask)   pinMode(mask, INPUT)
+#define DIRECT_MODE_INPUT(base, mask)   pinMode(mask, INPUT_PULLUP)
 #define DIRECT_MODE_OUTPUT(base, mask)  pinMode(mask, OUTPUT)
 #define DIRECT_WRITE_LOW(base, mask)    digitalWrite(mask, LOW);
 #define DIRECT_WRITE_HIGH(base, mask)   digitalWrite(mask, HIGH);
@@ -123,7 +123,7 @@
 #define IO_REG_TYPE 					uint16_t
 #define IO_REG_ASM
 #define DIRECT_READ(base, mask)         ((digitalRead(mask) > 0) ? 1 : 0)
-#define DIRECT_MODE_INPUT(base, mask)   (pinMode(mask, INPUT))
+#define DIRECT_MODE_INPUT(base, mask)   (pinMode(mask, INPUT_PULLUP))
 #define DIRECT_MODE_OUTPUT(base, mask)  (pinMode(mask, OUTPUT))
 #define DIRECT_WRITE_LOW(base, mask)    (digitalWrite(mask, LOW))
 #define DIRECT_WRITE_HIGH(base, mask)   (digitalWrite(mask, HIGH))
